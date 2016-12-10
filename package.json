@@ -1,0 +1,44 @@
+{
+  "name": "webpack-dots-reporter",
+  "version": "0.1.1",
+  "description": "Webpack reporter",
+  "main": "index.es5.js",
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "scripts": {
+    "pretest": "eslint index.js",
+    "test": "tape test.js | tap-spec",
+    "tdd": "chokidar *.js --command 'npm test' --initial --throttle=50 --polling",
+    "prepublish": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitive/webpack-dots-reporter.git"
+  },
+  "keywords": [
+    "webpack",
+    "reporter",
+    "ora",
+    "dots"
+  ],
+  "author": "Maxim Samoilov <nitive@icloud.com> (http://twitter.com/_nitive)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nitive/webpack-dots-reporter/issues"
+  },
+  "homepage": "https://github.com/nitive/webpack-dots-reporter#readme",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb-base": "^3.0.0",
+    "eslint-config-as": "^0.1.4",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "ora": "^0.2.1"
+  }
+}
