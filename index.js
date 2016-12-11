@@ -40,8 +40,9 @@ module.exports = function webpackDotsReporter(opts) {
         warnings.forEach(function (warning) {
           if (warning.message) {
             var location = warning.location
-            const path = [
-              warning.module && warning.module.userRequest,
+            const file = warning.file || (warning.module && warning.module.userRequest)
+            const path = file && [
+              file,
               location && location.line,
               location && location.character,
             ].filter(Boolean).join(':')
