@@ -23,6 +23,8 @@ module.exports = function webpackDotsReporter(opts) {
     frames[index] = oldFrame
   }
 
+  var lastCompilationIsSuccessful = false
+
   return function (options) {
     var state = options.state
     var stats = options.stats
@@ -33,7 +35,9 @@ module.exports = function webpackDotsReporter(opts) {
       if (stats.hasErrors() || stats.hasWarnings()) {
         spinner.clear()
         var compilation = stats.compilation
-        compilation.errors.concat(compilation.warnings).forEach(function (warning) {
+        var warnings = compilation.errors.concat(compilation.warnings)
+
+        warnings.forEach(function (warning) {
           if (warning.message) {
             var location = warning.location
             const path = [
@@ -45,6 +49,10 @@ module.exports = function webpackDotsReporter(opts) {
             console.log(warning.message + (path ? ('\n  at ' + path) : ''))
           }
         })
+        lastCompilationIsSuccessful = false
+      } else if (lastCompilationIsSuccessful === false) {
+        console.log('ok'.green)
+        lastCompilationIsSuccessful = true
       }
 
       spinner.text = message
