@@ -26,12 +26,12 @@
   },
   "homepage": "https://github.com/nitive/webpack-dots-reporter#readme",
   "devDependencies": {
-    "eslint": "^2.9.0",
-    "eslint-config-airbnb-base": "^3.0.0",
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
     "eslint-config-as": "^0.1.4"
   },
   "dependencies": {
     "colors": "^1.1.2",
-    "ora": "^0.2.1"
+    "ora": "^1.1.0"
   }
 }
